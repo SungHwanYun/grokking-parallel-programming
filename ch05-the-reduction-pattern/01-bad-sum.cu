@@ -26,7 +26,7 @@ int main() {
     cudaMalloc(&d_result, sizeof(int));
     cudaMemset(d_result, 0, sizeof(int));
 
-    sumKernel<<<numBlocks, threadsPerBlock>>>(d_data, d_result, n);
+    badSumKernel<<<numBlocks, threadsPerBlock>>>(d_data, d_result, n);
     int h_result;
     cudaMemcpy(&h_result, d_result, sizeof(int), cudaMemcpyDeviceToHost);
     printf("%d\n", h_result);
