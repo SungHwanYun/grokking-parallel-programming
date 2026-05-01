@@ -33,7 +33,7 @@ int main() {
     
     cudaMemcpy(h_C, d_C, n * sizeof(int), cudaMemcpyDeviceToHost);
     
-    for (int i = 0; i < n; i++) printf("%d", h_C[i]);
+    for (int i = 0; i < n; i++) printf("%d ", h_C[i]);
     
     cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
     free(h_A); free(h_B); free(h_C);
