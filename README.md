@@ -18,11 +18,10 @@ The code in this repository is designed to run on [cudaforces.com](https://cudaf
 
 ## Running the Code
 
-The recommended way to run the listings is to submit them to cudaforces.com:
+Visit [cudaforces.com](https://cudaforces.com), create a free account (no credit card or email verification required), and open the problem corresponding to the listing. Two buttons let you run your code:
 
-1. Visit [cudaforces.com](https://cudaforces.com) and create a free account (no credit card or email verification required).
-2. Open the problem corresponding to the listing.
-3. Paste the code, submit, and get instant feedback.
+- **Test** — your debugging playground. Paste the code, type any input you'd like (or leave it empty), and click Test to see the output immediately. Use this to experiment and debug freely.
+- **Submit** — grades your code against hidden test cases and returns a verdict ("Accepted", "Wrong Answer", etc.). Use this when you're confident your solution is correct.
 
 ### Optional: Running locally with `nvcc`
 
