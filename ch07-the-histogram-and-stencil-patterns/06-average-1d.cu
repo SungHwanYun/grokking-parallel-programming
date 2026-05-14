@@ -36,9 +36,9 @@ int main() {
     int blocks = (n + threadsPerBlock - 1) / threadsPerBlock;
     average1D<<<blocks, threadsPerBlock>>>(d_input, d_output, n);
  
-    cudaMemcpy(&h_output, d_output, m * sizeof(int),
+    cudaMemcpy(&h_output, d_output, n * sizeof(int),
                cudaMemcpyDeviceToHost);
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < n; i++) {
         printf("%.3f ", h_output[i]);
     }
  
