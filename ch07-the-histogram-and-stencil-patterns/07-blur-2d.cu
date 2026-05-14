@@ -42,8 +42,8 @@ int main() {
     cudaMemset(d_output, 0.0, n * m * sizeof(float));
  
     dim3 threadsPerBlock(16, 16);
-    dim3 blocks((n + 15) / 16, (n + 15) / 16);
-    blur2D<<<blocks, threadsPerBlock>>>(d_input, d_output, n, m);
+    dim3 blocks((m + 15) / 16, (n + 15) / 16);
+    blur2D<<<blocks, threadsPerBlock>>>(d_input, d_output, m, n);
  
     cudaMemcpy(&h_output, d_output, n * m * sizeof(int),
                cudaMemcpyDeviceToHost);
