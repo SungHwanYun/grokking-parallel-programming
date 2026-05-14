@@ -1,6 +1,6 @@
 #include <stdio.h>
  
-__global__ void histogramBad(int* data, int* hist, int n) {
+__global__ void histogramAtomic(int* data, int* hist, int n) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx < n) {
         int bin = data[idx];
@@ -23,7 +23,7 @@ int main() {
  
     int threadsPerBlock = 256;
     int blocks = (n + threadsPerBlock - 1) / threadsPerBlock;
-    histogramBad<<<blocks, threadsPerBlock>>>(d_data, d_hist, n);
+    histogramAtomic<<<blocks, threadsPerBlock>>>(d_data, d_hist, n);
  
     cudaMemcpy(&h_hist, d_hist, m * sizeof(int),
                cudaMemcpyDeviceToHost);
