@@ -1,5 +1,6 @@
 #include <stdio.h>
- 
+#include <cuda_runtime.h>
+
 __global__ void histogramShared(int* data, int* hist, int n) {
     __shared__ int localHist[256];
     int tid = threadIdx.x;
