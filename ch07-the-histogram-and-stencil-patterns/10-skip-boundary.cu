@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <cuda_runtime.h>
 
 __global__ void blur2D(float* input, float* output,
                        int width, int height) {
