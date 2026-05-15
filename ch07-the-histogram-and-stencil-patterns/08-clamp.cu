@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <cuda_runtime.h>
 
 __device__ int clamp(int x, int lo, int hi) {
     if (x < lo) return lo;
