@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <cuda_runtime.h>
 
 __device__ int wrap(int x, int size) {
     return ((x % size) + size) % size;
