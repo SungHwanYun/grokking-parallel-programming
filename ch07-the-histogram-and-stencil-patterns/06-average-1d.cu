@@ -1,5 +1,6 @@
 #include <stdio.h>
- 
+#include <cuda_runtime.h>
+
 __global__ void average1D(float* input, float* output, int n) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx >= n) return;
