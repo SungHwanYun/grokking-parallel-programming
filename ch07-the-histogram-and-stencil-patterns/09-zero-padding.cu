@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <cuda_runtime.h>
 
 __device__ float getValue(float* input, int x, int y,
                int width, int height) {
