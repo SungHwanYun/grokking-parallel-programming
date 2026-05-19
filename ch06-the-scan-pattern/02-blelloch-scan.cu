@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <cuda_runtime.h>
-__global__ void blellochScan(int* data, int n) {
+__global__ void blellochScanKernel(int* data, int n) {
     __shared__ int buf[256];
     int tid = threadIdx.x;
     buf[tid] = (tid < n) ? data[tid] : 0;
@@ -31,7 +31,7 @@ int main() {
     cudaMalloc(&d_data, n * sizeof(int));
     cudaMemcpy(d_data, h_data, n * sizeof(int),
         cudaMemcpyHostToDevice);
-    blellochScan<<<1, 256>>>(d_data, n);
+    blellochScanKernel<<<1, 256>>>(d_data, n);
     cudaDeviceSynchronize();
     cudaMemcpy(h_data, d_data, n * sizeof(int),
         cudaMemcpyDeviceToHost);
