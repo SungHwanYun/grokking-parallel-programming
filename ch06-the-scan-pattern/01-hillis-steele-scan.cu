@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <cuda_runtime.h>
-__global__ void scanKernel(int* input, int* output, int n) {
+__global__ void hillisSteeleScanKernel(int* input, int* output, int n) {
     __shared__ int buf[2][256];  // Double buffer
     int tid = threadIdx.x;
     int pout = 0, pin = 1;
@@ -30,7 +30,7 @@ int main() {
     cudaMalloc(&d_input, n * sizeof(int));
     cudaMalloc(&d_output, n * sizeof(int));
     cudaMemcpy(d_input, h_input, n * sizeof(int), cudaMemcpyHostToDevice);
-    scanKernel<<<1, 256>>>(d_input, d_output, n);
+    hillisSteeleScanKernel<<<1, 256>>>(d_input, d_output, n);
     cudaDeviceSynchronize();
     cudaMemcpy(h_output, d_output, n * sizeof(int), cudaMemcpyDeviceToHost);
     printf("Scan result: ");
