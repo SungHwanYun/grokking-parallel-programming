@@ -26,18 +26,19 @@ Code is currently available for Chapters 1–5, matching the chapters released i
 
 The code in this repository is designed to run on [swforces.com](https://swforces.com), the online judge for this book. swforces.com translates your CUDA code to C++ and runs it on regular CPUs, so you can learn and practice parallel programming from any computer.
 
-## Running the Code
+## Getting Started
 
-Visit [swforces.com](https://swforces.com), create a free account, and open the problem linked at the top of each `.cu` file. Two buttons let you run your code:
+Your lab for this book is [swforces.com](https://swforces.com), and setting it up takes only a few minutes:
 
-- **Test** — your debugging playground. Paste the code, type any input you'd like (or leave it empty), and click Test to see the output immediately. Use this to experiment and debug freely.
-- **Submit** — grades your code against hidden test cases and returns a verdict ("Accepted", "Wrong Answer", etc.). Use this when you're confident your solution is correct.
+1. **Create a free account** at [swforces.com](https://swforces.com) — no credit card required.
+2. **Open a problem.** Every `.cu` file in this repository links to its problem in the header comment (for example, [swforces.com/problem/191](https://swforces.com/problem/191) for your first Hello, Parallel World).
+3. **Test, then Submit.** On a problem page, **Test** runs your code with any input you type (or none) so you can experiment and debug freely; **Submit** grades it against hidden test cases and returns a verdict such as "Accepted" or "Wrong Answer".
 
-You can also run any code without a problem attached: the **IDE** tab at the top of the site opens a free-standing editor with its own input and output panels.
+Prefer to run code without a problem attached? The **IDE** tab at the top of the site opens a free-standing editor with its own input and output panels.
 
-New to the platform? The step-by-step walkthrough lives at [swforces.com/getting-started](https://swforces.com/getting-started).
+The full step-by-step walkthrough — creating an account, touring the problem set, submitting your first program, and pointers to free GPU options for running the same code on real hardware — lives online at **[swforces.com/getting-started](https://swforces.com/getting-started)**. Chapter 1 of the book walks you through it as well.
 
-### Optional: Running locally with `nvcc`
+## Optional: Running locally with `nvcc`
 
 If you have an NVIDIA GPU and the CUDA Toolkit installed, you can also compile and run the listings locally:
 
