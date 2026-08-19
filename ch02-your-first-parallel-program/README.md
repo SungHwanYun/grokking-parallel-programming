@@ -14,6 +14,6 @@ Practice box at the end of the chapter (reference solutions, not printed in the 
 |---|---|---|
 | `practice/197-double-array-elements.cu` | Double Array Elements | [swforces.com/problem/197](https://swforces.com/problem/197) |
 
-Shorter in-text snippets (the kernel on its own, the WRONG/RIGHT pairs in Common Mistakes) all appear inside these complete programs.
+Shorter in-text snippets (the kernel on its own, the RIGHT versions from the Common Mistakes pairs) all appear inside these complete programs.
 
 Note: the book omits CUDA error checking in this chapter to keep examples short; proper error handling is introduced in Chapter 4.

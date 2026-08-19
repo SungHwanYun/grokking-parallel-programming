@@ -13,4 +13,4 @@ Practice box at the end of the chapter (reference solutions, not printed in the 
 | `practice/70-find-minimum.cu` | Find Minimum | [swforces.com/problem/70](https://swforces.com/problem/70) |
 | `practice/44-count-array-element.cu` | Count Array Element | [swforces.com/problem/44](https://swforces.com/problem/44) |
 
-`194-array-max.cu` is the complete program built around the book's `maxKernel` (with the `INT_MIN` initialization the chapter explains); the min and count variants follow the same swap-the-operator recipe.
+`194-array-max.cu` is the complete program built around the book's `maxKernel`, with the `INT_MIN` initialization the chapter explains.

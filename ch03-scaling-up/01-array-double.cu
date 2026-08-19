@@ -2,8 +2,7 @@
 // Problem 3.1: Array Double
 // https://swforces.com/problem/192
 //
-// The four-step multi-block recipe: pick a block size, compute the block
-// count with ceiling division, use the global index, guard with a bounds check.
+// The chapter's four-step thread-to-element recipe, annotated inline as Steps 1-4.
 
 #include <stdio.h>
 #include <stdlib.h>

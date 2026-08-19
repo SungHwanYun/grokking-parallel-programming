@@ -4,7 +4,7 @@
 //
 // Reference solution (not printed in the book). Per the problem statement,
 // launch one thread per element in a single block, and have each thread
-// double its own element. Same 5-step pattern as the squaring program.
+// double its own element. Same five-step pattern as the squaring program.
 
 #include <stdio.h>
 #include <stdlib.h>

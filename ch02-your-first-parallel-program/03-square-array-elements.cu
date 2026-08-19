@@ -2,7 +2,7 @@
 // Problem 2.3: Square array elements
 // https://swforces.com/problem/190
 //
-// The full 5-step pattern: allocate, copy in, compute, copy out, free.
+// The full five-step pattern: allocate, copy in, compute, copy out, free.
 
 #include <stdio.h>
 #include <stdlib.h>

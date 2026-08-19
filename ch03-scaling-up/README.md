@@ -4,4 +4,4 @@
 |---|---|---|
 | `01-array-double.cu` | Problem 3.1: Array Double | [swforces.com/problem/192](https://swforces.com/problem/192) |
 
-The complete program demonstrates the four-step multi-block recipe: pick a block size, compute the block count with ceiling division, compute the global index `blockIdx.x * blockDim.x + threadIdx.x`, and guard with the bounds check `if (idx < n)`.
+The complete program demonstrates the chapter's four-step thread-to-element recipe: pick a block size, compute the block count with ceiling division, compute the global index `blockIdx.x * blockDim.x + threadIdx.x`, and guard with the bounds check `if (idx < n)`.
