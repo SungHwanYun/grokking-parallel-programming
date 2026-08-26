@@ -4,7 +4,7 @@ Code listings for [*Grokking Parallel Programming*](https://www.manning.com/book
 
 ## Repository Structure
 
-Each chapter has its own folder. Files within a chapter are numbered in the order they appear in the book, and each file's header comment links to the swforces problem it solves. Where a chapter ends with a **Practice on swforces** box, reference solutions for those extra problems live in that chapter's `practice/` subfolder.
+Each chapter has its own folder. Files within a chapter are numbered in the order they appear in the book. Where a file solves a specific swforces problem, its header comment links to that problem; other files are the chapter's listings as printed (some are kernels only, and each chapter README says which is which). Where a chapter ends with a **Practice on swforces** box, reference solutions for those extra problems live in that chapter's `practice/` subfolder.
 
 The book has three parts and 14 chapters:
 
@@ -12,13 +12,20 @@ The book has three parts and 14 chapters:
 - **Part 2 — Fundamental Parallel Patterns** (Chapters 4–9): Map, Reduce, Scan, Histogram, Stencil
 - **Part 3 — Mastering GPU Performance** (Chapters 10–14)
 
-Code is currently available for Chapters 1–5, matching the chapters released in the MEAP (Manning Early Access Program). Folders for the remaining chapters will be added as they are released.
-
 - `ch01-why-parallel-programming/` — conceptual chapter, no runnable code (see its README)
 - `ch02-your-first-parallel-program/`
 - `ch03-scaling-up/`
 - `ch04-the-map-pattern/`
 - `ch05-the-reduction-pattern/`
+- `ch06-scan-hillis-steele/`
+- `ch07-scan-blelloch/`
+- `ch08-the-histogram-pattern/`
+- `ch09-the-stencil-pattern/`
+- `ch10-memory-access-patterns/`
+- `ch11-shared-memory/`
+- `ch12-parallel-matrix-multiplication/`
+- `ch13-read-only-data-optimization/`
+- `ch14-warps-and-occupancy/` — hardware behavior chapter, illustrative fragments only (see its README)
 
 ## Requirements
 
