@@ -1,6 +1,6 @@
 # Grokking Parallel Programming: With Examples in CUDA
 
-Code listings for [*Grokking Parallel Programming*](https://www.manning.com/books/grokking-parallel-programming) by SungHwan Yun (Manning Publications).
+Code listings for [*Grokking Parallel Programming*](https://www.manning.com/books/grokking-parallel-programming?utm_source=yun&utm_medium=affiliate&utm_campaign=book_yun) by SungHwan Yun (Manning Publications).
 
 ## Repository Structure
 
