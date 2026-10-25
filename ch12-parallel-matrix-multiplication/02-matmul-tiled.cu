@@ -1,6 +1,7 @@
 // Chapter 12 — Parallel Matrix Multiplication
 // Tiled matmul: cooperative tile loading into shared memory with two
-// barriers per tile (kernel only; launch with dim3 blockDim(32, 32)).
+// barriers per tile (kernel only; launch with dim3 blockDim(TILE_SIZE, TILE_SIZE) and
+// dim3 gridDim((N + TILE_SIZE - 1) / TILE_SIZE, (M + TILE_SIZE - 1) / TILE_SIZE)).
 
 #define TILE_SIZE 32
 __global__ void matmulTiled(float* A, float* B, float* C,
