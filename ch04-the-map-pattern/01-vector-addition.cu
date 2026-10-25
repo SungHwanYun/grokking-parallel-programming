@@ -39,8 +39,8 @@ int main() {
 
     // Step 3: Launch kernel (enough blocks of 256 threads to cover n)
     int threadsPerBlock = 256;
-    int blocks = (n + threadsPerBlock - 1) / threadsPerBlock;
-    vectorAddKernel<<<blocks, threadsPerBlock>>>(d_A, d_B, d_C, n);
+    int numBlocks = (n + threadsPerBlock - 1) / threadsPerBlock;
+    vectorAddKernel<<<numBlocks, threadsPerBlock>>>(d_A, d_B, d_C, n);
 
     // Step 4: Copy results back and print
     cudaMemcpy(h_C, d_C, n * sizeof(int), cudaMemcpyDeviceToHost);
