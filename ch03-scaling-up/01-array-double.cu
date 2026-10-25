@@ -18,7 +18,7 @@ __global__ void doubleKernel(int* data, int n) {
 int main() {
     int n;
     scanf("%d", &n);
-    int size = n * sizeof(int);
+    size_t size = n * sizeof(int);
 
     // Allocate host (CPU) memory and initialize
     int* h_data = (int*)malloc(size);                 // h_ prefix = host (CPU)
