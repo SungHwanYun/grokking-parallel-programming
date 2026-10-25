@@ -30,6 +30,7 @@ __global__ void blellochScan(int* data, int n) {
 }
 int main() {
     int n = 8;
+    if (n == 0) return 0;  // Nothing to scan
     int h_data[] = {3, 1, 7, 0, 4, 1, 6, 3};
     int *d_data;
     cudaMalloc(&d_data, n * sizeof(int));
