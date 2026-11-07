@@ -50,7 +50,6 @@ int main() {
     cudaMemcpy(d_data, h_data, n * sizeof(int), cudaMemcpyHostToDevice);
 
     blellochScan<<<1, 256>>>(d_data, n);
-    cudaDeviceSynchronize();
 
     cudaMemcpy(h_data, d_data, n * sizeof(int), cudaMemcpyDeviceToHost);
     for (int i = 0; i < n; i++) printf("%d ", h_data[i]);

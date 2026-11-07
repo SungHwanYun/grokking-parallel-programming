@@ -46,7 +46,6 @@ int main() {
     cudaMemcpy(d_input, h_data, n * sizeof(int), cudaMemcpyHostToDevice);
 
     scanKernel<<<1, 256>>>(d_input, d_output, n);
-    cudaDeviceSynchronize();
 
     cudaMemcpy(h_data, d_output, n * sizeof(int), cudaMemcpyDeviceToHost);
     for (int i = 0; i < n; i++) printf("%d ", h_data[i]);

@@ -1,4 +1,4 @@
-// Chapter 12 — Parallel Matrix Multiplication
+// Chapter 12 — Parallel matrix multiplication
 // Tiled matmul: cooperative tile loading into shared memory with two
 // barriers per tile (kernel only; launch with dim3 blockDim(TILE_SIZE, TILE_SIZE) and
 // dim3 gridDim((N + TILE_SIZE - 1) / TILE_SIZE, (M + TILE_SIZE - 1) / TILE_SIZE)).

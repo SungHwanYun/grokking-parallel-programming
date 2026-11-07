@@ -1,4 +1,4 @@
-# Chapter 1 — Why Parallel Programming?
+# Chapter 1 — Why parallel programming?
 
 This chapter is conceptual: it explains why the free lunch ended, how Amdahl's Law bounds speedup (and how Gustafson's Law counters it), why GPUs became essential, and previews the patterns covered in the rest of the book. The only code shown is a short sequential loop and its parallel pseudocode counterpart, so there are no runnable listings here.
 

@@ -1,5 +1,5 @@
 // Chapter 4 — The Map pattern
-// Problem 4.1: Vector Addition
+// Problem 4.1: Vector addition
 // https://swforces.com/problem/4
 //
 // Map with multiple inputs: each thread reads A[idx] and B[idx] and writes

@@ -1,4 +1,4 @@
-// Chapter 12 — Parallel Matrix Multiplication
+// Chapter 12 — Parallel matrix multiplication
 // In production: the cublasSgemm call for row-major C = A × B.
 // Call-site excerpt as printed in the book, not a standalone program.
 
@@ -10,9 +10,8 @@ cublasCreate(&handle);
 float alpha = 1.0f, beta = 0.0f;
 
 cublasSgemm(handle,
-    // transpose flags: CUBLAS_OP_N means “no transpose” (use the matrix as-is)
-    CUBLAS_OP_N, CUBLAS_OP_N,
-    N, M, K,    // dimensions (note: N first!)
+    CUBLAS_OP_N, CUBLAS_OP_N,    // transpose flags: CUBLAS_OP_N means "no transpose" (use the matrix as-is)
+    N, M, K,    // dimensions (note: N first)
     &alpha,
     d_B, N,    // B matrix, leading dimension
     d_A, K,    // A matrix, leading dimension

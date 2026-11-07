@@ -43,7 +43,7 @@ Your lab is [swforces.com](https://swforces.com), and setting it up takes only a
 
 Prefer to run code without a problem attached? The **IDE** tab at the top of the site opens a free-standing editor with its own input and output panels.
 
-The full step-by-step walkthrough — creating an account, touring the problem set, submitting your first program, and pointers to free GPU options for running the same code on real hardware — lives online at **[swforces.com/getting-started](https://swforces.com/getting-started)**. Chapter 1's "Your Lab" section introduces the platform as well.
+The full step-by-step walkthrough — creating an account, touring the problem set, submitting your first program, and pointers to free GPU options for running the same code on real hardware — lives online at **[swforces.com/getting-started](https://swforces.com/getting-started)**. Chapter 1's "Your lab" section introduces the platform as well.
 
 ## Optional: Running locally with `nvcc`
 

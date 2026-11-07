@@ -4,7 +4,7 @@
 //
 // Reference solution (not printed in the book). The 3-Step Recipe applied
 // to a new problem: each thread Loads its own product a[i]*b[i] into shared
-// memory, the block Collaborates on the tree reduction from Chapter 5, and
+// memory, the block Collaborates on the tree reduction from chapter 5, and
 // thread 0 Writes back the block's partial sum with one atomicAdd. n can be
 // up to 2,048, so several blocks contribute partial sums.
 
@@ -19,11 +19,11 @@ __global__ void dotKernel(int* a, int* b, int* result, int n) {
     int tid = threadIdx.x;
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
 
-    // Step 1: Load — each thread's own product (or 0 as padding)
+    // Step 1: Load. Each thread's own product (or 0 as padding)
     sdata[tid] = (idx < n) ? a[idx] * b[idx] : 0;
     __syncthreads();
 
-    // Step 2: Collaborate — tree reduction, one barrier per round
+    // Step 2: Collaborate. Tree reduction, one barrier per round
     for (int stride = blockDim.x / 2; stride > 0; stride >>= 1) {
         if (tid < stride) {
             sdata[tid] += sdata[tid + stride];
@@ -31,7 +31,7 @@ __global__ void dotKernel(int* a, int* b, int* result, int n) {
         __syncthreads();
     }
 
-    // Step 3: Write back — one atomicAdd per block
+    // Step 3: Write back. One atomicAdd per block
     if (tid == 0) {
         atomicAdd(result, sdata[0]);
     }

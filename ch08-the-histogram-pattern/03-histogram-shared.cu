@@ -1,5 +1,5 @@
-// Chapter 8 — The Histogram Pattern
-// A faster fix: privatization — per-block histogram in shared memory,
+// Chapter 8 — The Histogram pattern
+// A faster fix: privatization: a per-block histogram in shared memory,
 // then one atomic merge per bin per block (kernel only).
 
 __global__ void histogramShared(int* data, int* hist, int n) {

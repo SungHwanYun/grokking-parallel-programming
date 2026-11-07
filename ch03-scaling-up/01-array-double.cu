@@ -1,12 +1,12 @@
 // Chapter 3 — Scaling up: from one block to many
-// Problem 3.1: Array Double
+// Problem 3.1: Array double
 // https://swforces.com/problem/192
 //
 // The chapter's four-step thread-to-element recipe, annotated inline as Steps 1-4.
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <cuda_runtime.h>
+#include <cuda_runtime.h>                                 // CUDA API (cudaMalloc, cudaMemcpy, etc.)
 
 __global__ void doubleKernel(int* data, int n) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;  // Step 3: global index
@@ -33,11 +33,12 @@ int main() {
 
     int threadsPerBlock = 256;                        // Step 1: block size
     int numBlocks = (n + threadsPerBlock - 1) / threadsPerBlock;  // Step 2: ceiling division
-    doubleKernel<<<numBlocks, threadsPerBlock>>>(d_data, n);      // Launch!
-    cudaDeviceSynchronize();                          // Wait for GPU to finish
+    doubleKernel<<<numBlocks, threadsPerBlock>>>(d_data, n);      // Launch
+    cudaDeviceSynchronize();                          // Wait for the GPU; kept for clarity (see the chapter's sidebar)
 
     // Copy results back to CPU
     cudaMemcpy(h_data, d_data, size, cudaMemcpyDeviceToHost);
+    // Print the results
     for (int i = 0; i < n; i++) {
         printf("%d ", h_data[i]);
     }

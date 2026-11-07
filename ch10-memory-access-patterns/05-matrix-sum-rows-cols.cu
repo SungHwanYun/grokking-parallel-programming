@@ -1,4 +1,4 @@
-// Chapter 10 — Memory Access Patterns
+// Chapter 10 — Memory access patterns
 // Matrices: row sums look contiguous but stride; column sums look strided
 // but coalesce (kernels only).
 
@@ -8,9 +8,7 @@ __global__ void sumRows(float* matrix, float* result, int width, int height) {
     if (row >= height) return;
     float sum = 0.0f;
     for (int col = 0; col < width; col++) {
-
-        // col=0: T0→[0], T1→[width], T2→[2*width]: Strided!
-        sum += matrix[row * width + col];
+        sum += matrix[row * width + col];    // col=0: T0→[0], T1→[width], T2→[2*width]: Strided
     }
     result[row] = sum;
 }
@@ -22,8 +20,7 @@ __global__ void sumCols(float* matrix, float* result,
     if (col >= width) return;
     float sum = 0.0f;
     for (int row = 0; row < height; row++) {
-
-        sum += matrix[row * width + col];    // row=0: T0→[0], T1→[1], T2→[2]: Coalesced!
+        sum += matrix[row * width + col];    // row=0: T0→[0], T1→[1], T2→[2]: Coalesced
     }
     result[col] = sum;
 }

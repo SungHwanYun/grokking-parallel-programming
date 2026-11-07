@@ -1,4 +1,4 @@
-// Chapter 11 — Shared Memory
+// Chapter 11 — Shared memory
 // A first taste of tiling: matrix transpose with a padded 32×33 tile,
 // coalesced on both the read and the write (kernel only).
 
@@ -10,6 +10,5 @@ __global__ void transposeTiled(const float* in, float* out, int n) {
     __syncthreads();    // Barrier between load and write back
     x = blockIdx.y * 32 + threadIdx.x;
     y = blockIdx.x * 32 + threadIdx.y;
-    // Coalesced write of the transposed tile
-    out[y * n + x] = tile[threadIdx.x][threadIdx.y];
+    out[y * n + x] = tile[threadIdx.x][threadIdx.y];    // Coalesced write of the transposed tile
 }

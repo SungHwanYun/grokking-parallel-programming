@@ -1,4 +1,4 @@
-// Chapter 9 — The Stencil Pattern
+// Chapter 9 — The Stencil pattern
 // 2D box blur: 3×3 neighborhood average with the count trick at the edges
 // (kernel only; launch with dim3 block(16, 16) as shown in the chapter).
 

@@ -1,4 +1,4 @@
-# Chapter 9 — The Stencil Pattern
+# Chapter 9 — The Stencil pattern
 
 | File | What it is |
 |---|---|
@@ -7,9 +7,10 @@
 
 The chapter presents these as kernels; the boundary-strategy helpers (clamp, zero padding, skip, wrap-around) appear in the book as short fragments and are not duplicated here.
 
-Practice box at the end of the chapter (reference solutions, not printed in the book). Both wrap the chapter's kernels in a `main()` that reads from standard input; the 2D blur launches the `dim3 block(16, 16)` grid from the chapter:
+Practice box at the end of the chapter (reference solutions, not printed in the book). Problems 203 and 204 wrap the chapter's kernels in a `main()` that reads from standard input; the 2D blur launches the `dim3 block(16, 16)` grid from the chapter. Problem 61 is a weighted stencil: convolution in valid mode, which drops the padding and hands you the kernel weights:
 
 | File | Problem | Link |
 |---|---|---|
 | `practice/203-1d-moving-average.cu` | 1D Moving Average | [swforces.com/problem/203](https://swforces.com/problem/203) |
 | `practice/204-2d-box-blur.cu` | 2D Box Blur | [swforces.com/problem/204](https://swforces.com/problem/204) |
+| `practice/61-2d-convolution.cu` | 2D Convolution | [swforces.com/problem/61](https://swforces.com/problem/61) |

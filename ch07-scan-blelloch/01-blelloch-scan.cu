@@ -1,4 +1,4 @@
-// Chapter 7 — Work-Efficient Scan: Blelloch
+// Chapter 7 — Work-efficient scan: Blelloch
 // Complete Blelloch exclusive scan (single block; n must be a power of 2).
 // Up-sweep builds the reduction tree; the down-sweep distributes prefix sums.
 
@@ -30,14 +30,12 @@ __global__ void blellochScan(int* data, int n) {
 }
 int main() {
     int n = 8;
-    if (n == 0) return 0;  // Nothing to scan
     int h_data[] = {3, 1, 7, 0, 4, 1, 6, 3};
     int *d_data;
     cudaMalloc(&d_data, n * sizeof(int));
     cudaMemcpy(d_data, h_data, n * sizeof(int),
         cudaMemcpyHostToDevice);
     blellochScan<<<1, 256>>>(d_data, n);
-    cudaDeviceSynchronize();
     cudaMemcpy(h_data, d_data, n * sizeof(int),
         cudaMemcpyDeviceToHost);
     printf("Exclusive scan: ");

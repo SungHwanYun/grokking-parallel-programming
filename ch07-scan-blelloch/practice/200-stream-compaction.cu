@@ -19,7 +19,7 @@ __global__ void compactEven(int* data, int* output, int* count,
     __shared__ int buf[256];
     int tid = threadIdx.x;
 
-    // Step 1: Predicate — flag the elements to keep (evens)
+    // Step 1: Predicate. Flag the elements to keep (evens)
     int flag = (tid < n && data[tid] % 2 == 0) ? 1 : 0;
     buf[tid] = (tid < padded_n) ? flag : 0;
     __syncthreads();
@@ -43,7 +43,7 @@ __global__ void compactEven(int* data, int* output, int* count,
         __syncthreads();
     }
 
-    // Step 3: Scatter — each keeper's destination is its exclusive scan value
+    // Step 3: Scatter. Each keeper's destination is its exclusive scan value
     if (tid < n && flag) output[buf[tid]] = data[tid];
     // The last exclusive scan value plus the last flag is the kept count
     if (tid == n - 1) *count = buf[tid] + flag;
@@ -66,7 +66,6 @@ int main() {
     cudaMemcpy(d_data, h_data, n * sizeof(int), cudaMemcpyHostToDevice);
 
     compactEven<<<1, 256>>>(d_data, d_output, d_count, n, padded_n);
-    cudaDeviceSynchronize();
 
     int m;
     cudaMemcpy(&m, d_count, sizeof(int), cudaMemcpyDeviceToHost);

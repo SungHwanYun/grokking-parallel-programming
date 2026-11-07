@@ -1,4 +1,4 @@
-// Chapter 10 — Memory Access Patterns
+// Chapter 10 — Memory access patterns
 // Coalesced access: consecutive threads read consecutive addresses (kernel only).
 
 __global__ void copyKernel(float* input, float* output, int n) {

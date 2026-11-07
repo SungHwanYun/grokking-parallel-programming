@@ -1,8 +1,14 @@
-// Chapter 13 — Read-Only Data Optimization
-// Problem 13.1: Scale Array with Constant Factor
+// Chapter 13 — Read-only data optimization
+// Problem 13.1: Scale array with constant factor
 // https://swforces.com/problem/196
+//
+// The complete program as printed in the chapter, with the example's values
+// hard-coded to keep the focus on the three constant-memory steps. The
+// swforces version of the same program (reading its input from stdin) is in
+// 02-scale-array-constant-stdin.cu.
 
-#include <stdio.h>    // not printed in the book's listing; needed for printf
+#include <stdio.h>
+#include <cuda_runtime.h>
 
 // Step 1: Declare in constant memory (file scope)
 __constant__ float scaleFactor;
@@ -10,7 +16,7 @@ __constant__ float scaleFactor;
 __global__ void scaleKernel(float* data, int n) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     if (idx < n) {
-        // Step 3: Use it — every thread reads the same value!
+        // Step 3: Use it (every thread reads the same value)
         data[idx] = data[idx] * scaleFactor;    // Broadcast
     }
 }
@@ -28,7 +34,6 @@ int main() {
 
     // Step 2: Copy scale factor to constant memory
     cudaMemcpyToSymbol(scaleFactor, &h_scale, sizeof(float));
-
 
     // Launch kernel
     int blockSize = 256;

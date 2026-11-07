@@ -1,7 +1,8 @@
-// Chapter 8 — The Histogram Pattern
+// Chapter 8 — The Histogram pattern
 // Complete program: count positive numbers with a single atomic counter.
 
 #include <stdio.h>
+#include <cuda_runtime.h>
 
 // The kernel (runs on GPU)
 __global__ void countPositive(int* data, int* count, int n) {

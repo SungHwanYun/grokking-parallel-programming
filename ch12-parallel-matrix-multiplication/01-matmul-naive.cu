@@ -1,4 +1,4 @@
-// Chapter 12 — Parallel Matrix Multiplication
+// Chapter 12 — Parallel matrix multiplication
 // Naive matmul: one thread per output element, all reads from global memory
 // (kernel only; launch with dim3 blockDim(16, 16) as shown in the chapter).
 

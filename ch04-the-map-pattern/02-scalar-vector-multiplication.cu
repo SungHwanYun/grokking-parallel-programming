@@ -1,5 +1,5 @@
 // Chapter 4 — The Map pattern
-// Problem 4.2: Scalar Vector Multiplication
+// Problem 4.2: Scalar vector multiplication
 // https://swforces.com/problem/39
 //
 // The kernel is printed in the book. The main() is not printed there; as the
@@ -35,8 +35,10 @@ int main() {
     // Step 2: Copy data from CPU to GPU (k travels as a kernel argument)
     cudaMemcpy(d_A, h_A, n * sizeof(int), cudaMemcpyHostToDevice);
 
-    // Step 3: Launch kernel
-    scalarMultiplyKernel<<<(n + 255) / 256, 256>>>(d_A, d_B, k, n);
+    // Step 3: Launch kernel (enough blocks of 256 threads to cover n)
+    int threadsPerBlock = 256;
+    int numBlocks = (n + threadsPerBlock - 1) / threadsPerBlock;
+    scalarMultiplyKernel<<<numBlocks, threadsPerBlock>>>(d_A, d_B, k, n);
 
     // Step 4: Copy results back and print
     cudaMemcpy(h_B, d_B, n * sizeof(int), cudaMemcpyDeviceToHost);

@@ -34,8 +34,10 @@ int main() {
     // Step 2: Copy data from CPU to GPU
     cudaMemcpy(d_A, h_A, n * sizeof(float), cudaMemcpyHostToDevice);
 
-    // Step 3: Launch kernel
-    reluKernel<<<(n + 255) / 256, 256>>>(d_A, d_B, n);
+    // Step 3: Launch kernel (enough blocks of 256 threads to cover n)
+    int threadsPerBlock = 256;
+    int numBlocks = (n + threadsPerBlock - 1) / threadsPerBlock;
+    reluKernel<<<numBlocks, threadsPerBlock>>>(d_A, d_B, n);
 
     // Step 4: Copy results back and print
     cudaMemcpy(h_B, d_B, n * sizeof(float), cudaMemcpyDeviceToHost);
